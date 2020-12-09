@@ -1,0 +1,24 @@
+{
+	"data": [
+		{
+			"date": "2020-01-01",
+			"investment_invest_value": 1000,
+			"investment_current_value": 1100
+		},
+		{
+			"date": "2020-01-02",
+			"investment_invest_value": 1000,
+			"investment_current_value": 1150
+		},
+		{
+			"date": "2020-01-03",
+			"investment_invest_value": 1000,
+			"investment_current_value": 900
+		},
+		{
+			"date": "2020-01-04",
+			"investment_invest_value": 1000,
+			"investment_current_value": 1200
+		}
+	]
+}
