@@ -1,6 +1,6 @@
 # Line-Chart-using-mpAndroid-Chart
 
-TODO <you will need to change the json usl in MainActivity.java on line no:-121>
+TODO ---- you will need to change the json usl in MainActivity.java on line no:-121
 
 
      NOTE ---- json file is provided in the repo with name dataset.json
