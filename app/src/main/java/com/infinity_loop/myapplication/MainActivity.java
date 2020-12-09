@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
         String tag_string_req = "req_chart";
 
-        StringRequest strReq = new StringRequest(Request.Method.POST, "http://192.168.1.203/RewardsProject/dataset.json",
+        StringRequest strReq = new StringRequest(Request.Method.POST, "https://moneyfit.000webhostapp.com/",
                 new Response.Listener<String>() {
 
                     @Override
