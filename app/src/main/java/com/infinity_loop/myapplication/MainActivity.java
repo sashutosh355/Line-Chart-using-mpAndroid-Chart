@@ -3,8 +3,12 @@ package com.infinity_loop.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -29,6 +33,7 @@ import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.listener.OnChartGestureListener;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.github.mikephil.charting.utils.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -64,6 +69,9 @@ public class MainActivity extends AppCompatActivity {
         mChart.setDragEnabled(true);
         mChart.setScaleEnabled(true);
         mChart.setPinchZoom(true);
+        mChart.setHighlightPerTapEnabled(true);
+        CustomMarkerView mv = new CustomMarkerView(this, R.layout.custom_marker_view_layout);
+        mChart.setMarkerView(mv);
 
 
         XAxis xl = mChart.getXAxis();
@@ -76,8 +84,6 @@ public class MainActivity extends AppCompatActivity {
         l.setForm(Legend.LegendForm.LINE);
 
         drawChart();
-
-
 
     }
 
@@ -121,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
         StringRequest strReq = new StringRequest(Request.Method.POST, "https://moneyfit.000webhostapp.com/",
                 new Response.Listener<String>() {
 
+                    @SuppressLint("ResourceType")
                     @Override
                     public void onResponse(String response) {
 
@@ -145,22 +152,35 @@ public class MainActivity extends AppCompatActivity {
                             LineDataSet set1 = new LineDataSet(x, "Current Value");
                             LineDataSet set2 = new LineDataSet(k, "Investment Value");
                             set1.setLineWidth(3f);
-                            set1.setCircleRadius(4f);
-                            set1.setCircleColor(getResources().getColor(R.color.green));
+//                            set1.setCircleRadius(0f);
+//                            set1.setDrawFilled(true);
                             set1.setColor(getResources().getColor(R.color.green));
-                            set1.setValueTextColors(Collections.singletonList(getResources().getColor(R.color.green)));
-                            set1.setValueTextSize(10f);
+                            set1.setDrawFilled(true);
+                            set1.setDrawCircles(false);
+                            set1.setValueTextSize(0f);
+                            set1.setFillColor(getResources().getColor(R.color.green));
+//                            set1.setFillAlpha(R.drawable.fade_green);
+//                            if (android.os.Build.VERSION.SDK_INT >= 18) {
+//                                set1.setFillColor(getResources().getColor(R.drawable.fade_green));
+//                            }
+//                            else {
+//
+//                            }
+
 
 
 
 
                             set2.setLineWidth(3f);
-                            set2.setCircleRadius(4f);
-                            set2.setCircleColor(getResources().getColor(R.color.orange));
+//                            set2.setCircleRadius(0f);
+//                            set2.setCircleColor(getResources().getColor(R.color.orange));
                             set2.setColor(getResources().getColor(R.color.orange));
-                            set2.setValueTextColors(Collections.singletonList(getResources().getColor(R.color.orange)));
-                            set2.setValueTextSize(10f);
-
+//                            set2.setValueTextColors(Collections.singletonList(getResources().getColor(R.color.orange)));
+//                            set2.setValueTextSize(10f);
+                            set2.setDrawFilled(true);
+                            set2.setValueTextSize(0f);
+                            set2.setFillColor(getResources().getColor(R.color.orange));
+                            set2.setDrawCircles(false);
 
                             LineData data = new LineData(y, set1);
 
@@ -202,3 +222,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+
